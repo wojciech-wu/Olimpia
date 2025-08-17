@@ -1,0 +1,34 @@
+cmake_minimum_required(VERSION 3.10)
+project(OlimpiaAI VERSION 1.0 LANGUAGES CXX)
+
+# Set C++ standard
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Include header files
+include_directories(${CMAKE_SOURCE_DIR}/include)
+
+# Create shared library
+add_library(OlimpiaCore SHARED
+    src/neural_network.cpp
+)
+
+# Define export macro for DLL
+target_compile_definitions(OlimpiaCore PRIVATE OLIMPIACORE_EXPORTS)
+
+# Create executable
+add_executable(OlimpiaAI
+    src/Olimpia.cpp
+)
+
+# Link executable to shared library
+target_link_libraries(OlimpiaAI PRIVATE OlimpiaCore)
+
+# Optional: Show compile warnings
+if (MSVC)
+    target_compile_options(OlimpiaCore PRIVATE /W4)
+    target_compile_options(OlimpiaAI PRIVATE /W4)
+else()
+    target_compile_options(OlimpiaCore PRIVATE -Wall -Wextra -pedantic)
+    target_compile_options(OlimpiaAI PRIVATE -Wall -Wextra -pedantic)
+endif()

@@ -1,0 +1,4 @@
+D:/Olimpia LM/Olimpia/build/CMakeFiles/OlimpiaCore.dir
+D:/Olimpia LM/Olimpia/build/CMakeFiles/OlimpiaAI.dir
+D:/Olimpia LM/Olimpia/build/CMakeFiles/ALL_BUILD.dir
+D:/Olimpia LM/Olimpia/build/CMakeFiles/ZERO_CHECK.dir
